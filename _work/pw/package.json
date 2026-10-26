@@ -1,0 +1,8 @@
+{
+  "name": "stone-aura-tests",
+  "private": true,
+  "description": "Playwright checks for the Stone Aura site (run against a local server on :5173)",
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

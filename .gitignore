@@ -1,0 +1,12 @@
+# local working material — sources, masters, caches (not part of the site)
+_backup/
+.claude/
+_work/*
+!_work/pw/
+_work/pw/node_modules/
+_work/pw/shots/
+!_work/stock/
+_work/stock/*
+!_work/stock/build_images.py
+!_work/stock/sheet.py
+!_work/stock/build_video.sh
