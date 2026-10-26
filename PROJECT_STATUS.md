@@ -73,5 +73,19 @@ cd _work/stock && python build_images.py          # rebuild the image sets (need
 cd _work/pw && npm i && CH=chrome node test.js && CH=chrome node func.js && node video.js
 ```
 
-## Deployment
-See the section appended below after the first verified deploy.
+## Deployment (verified 2026-10-26)
+- **Live URL:** https://spectertechnologies9-automation.github.io/stone-aura/. This is the `environment_url` reported by GitHub's deployment status for the `github-pages` environment.
+- **Repository / branch:** https://github.com/spectertechnologies9-automation/stone-aura, `main`. The site commit is `46c9c6b`, pushed as a fast-forward on top of the pre-existing `31c894d Create test`, which is preserved. No force-push.
+- **Workflow run:** https://github.com/spectertechnologies9-automation/stone-aura/actions/runs/40299330677 succeeded (checkout, assemble, configure-pages, upload artifact, deploy-pages all passed). Pages was already set to deploy from GitHub Actions.
+- **Live checks (installed Chrome, `_work/pw/live.js`):**
+  - HTTP 200 at 360, 390, 430 and 1440 px, with 0 failed requests and 0 console errors.
+  - All four self-hosted fonts loaded.
+  - The hero film plays: the portrait WebM on phones, 1080p WebM on desktop.
+  - All 28 images load on desktop after a full scroll. On phones 22/28 load; the other 6 are hidden process-stage photos that load when their stage is activated. No broken images.
+  - No horizontal overflow, nav link scrolls to Contact, mailto link points at stoneaura.aggregates@gmail.com, and the mobile process carousel advances.
+  - `index-standalone.html` returns 200.
+  - One 360 px run hit `ERR_NETWORK_IO_SUSPENDED` (the local machine's network was suspended mid-test). The re-run was clean.
+- **GitHub CLI** isn't installed. Git used the existing Git Credential Manager login, and status was read from the public REST API.
+
+## Incident during this session (needs owner attention)
+Installing Playwright for tests initially went to `Desktop/` instead of `_work/pw`, because a `node_modules` folder already existed there. npm created `Desktop/package.json` and `package-lock.json`, and **pruned the existing packages in `Desktop/node_modules`**: `@fontsource/*`, `@oxc-project/*` and `@rolldown/*` are now empty (a stale `.vite` folder suggests a Vite project used them). The files npm created were moved to `_work/retired-npm-desktop/`. To restore the pruned packages, run `npm install` in whichever project those dependencies belonged to. Tests now install locally in `_work/pw`.
