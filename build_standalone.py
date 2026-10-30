@@ -24,10 +24,13 @@ def inline(match):
     return cache[path]
 
 
-# one candidate per image: <img> keeps its src; <source> keeps the last (largest) srcset entry
+# one candidate per image: <img> keeps its src; <source> keeps the first (smallest) srcset entry
 html = re.sub(r'(<img [^>]*?) srcset="[^"]*" sizes="[^"]*"', r'\1', html)
-html = re.sub(r'(<source [^>]*?)srcset="(?:[^",]+, )*([^", ]+) \d+w" sizes="[^"]*"', r'\1srcset="\2"', html)
+html = re.sub(r'(<source [^>]*?)srcset="([^", ]+) \d+w(?:, [^"]*)?" sizes="[^"]*"', r'\1srcset="\2"', html)
 out = re.sub(r'assets/images/[\w.-]+\.webp', inline, html)
+# the "save contact" vCard travels inside the file too
+vcf = (root / 'assets' / 'stone-aura.vcf').read_bytes()
+out = out.replace('assets/stone-aura.vcf', 'data:text/vcard;base64,' + base64.b64encode(vcf).decode('ascii'))
 # preload hints are pointless once images are inline
 out = re.sub(r'<link rel="preload" as="image"[^>]*>\n', '', out)
 (root / 'index-standalone.html').write_text(out, encoding='utf-8', newline='\n')

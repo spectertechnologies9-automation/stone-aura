@@ -1,6 +1,17 @@
 # Stone Aura website — project status
 
-_Last updated: 2026-10-26 (v3: cinematic rebuild with licensed footage and photography, deployed via GitHub Pages)_
+_Last updated: 2026-10-30 (v4: owner logo + photos, hero slideshow, phone/WhatsApp/vCard)_
+
+## v4 changes (2026-10-30)
+- **Logo** in the nav (switches between light and dark versions with the nav tone), above the hero title, in the footer, as the favicon and in the vCard.
+- **Hero slideshow** replaces the stock film: 8 owner photos (plant, jally, blocks, M-Sand, quarry stone, cobble, conveyor, 20 mm jally), each with a 16:9 and a 9:16 crop. Directional wipe with a gold seam, slow Ken Burns drift, caption + counter, progress bars, prev/pause/next, swipe on phones. It pauses off-screen, when the tab is hidden, and starts paused with reduced motion.
+- **Materials:** 10 of 13 cards now use owner photos. 6 mm, 40 mm and triple-wash sand still use stock (noted under the grid).
+- **Contact:** phone/WhatsApp +91 89042 07227 everywhere (hero, menu, contact, footer, JSON-LD). New buttons: "WhatsApp us" (wa.me with a greeting), "Save contact"/"Add to contacts" (`assets/stone-aura.vcf`; `download` attribute on non-iOS), Call. A quick-contact dock (Call / Save contact / WhatsApp) floats bottom-right on desktop and becomes a bottom bar on phones; it appears after the hero and hides over the contact section. The enquiry builder's "Send on WhatsApp" is live.
+- `build_standalone.py` also inlines the vCard.
+- Tested (Playwright Chromium): 360/390/768/1440/1920 px with no overflow, console errors or failed requests; autoplay, pause/resume, off-screen pause, reduced motion and no-JS checked.
+- Open: confirm the washed-sand photo (`m-sand-2x`, came as a screenshot) is the owner's; send photos for 6 mm, 40 mm and triple-wash sand; `assets/video/` (26 MB) can be deleted if the film won't return.
+
+## Earlier: v3 (2026-10-26, cinematic rebuild with licensed footage and photography)
 
 ## What this is
 Static marketing site for **Stone Aura** (legal name **M/S Anugraha Enterprises**), tagline *“Nature’s Strength. Your Foundation.”* There's no framework and no build step. `index.html` is the whole site and loads assets from `assets/`.
@@ -58,7 +69,7 @@ Static marketing site for **Stone Aura** (legal name **M/S Anugraha Enterprises*
 
 ## Known limitations and open items
 1. **Gemini wasn't used.** It isn't signed in in the built-in browser, and Claude in Chrome wasn't connected. Higgsfield has 0 credits. All imagery is licensed stock.
-2. **Phone and WhatsApp numbers are unknown.** Set `CONTACT.phone` / `CONTACT.whatsapp` in `index.html`.
+2. ~~Phone and WhatsApp numbers are unknown.~~ Set to +91 89042 07227 in v4.
 3. **Address** is carried over from the old site and needs owner confirmation.
 4. **Stock imagery** shows foreign plants (one hero clip shows a sand plant with a green building). Replacing it with real Stone Aura footage and photos is the biggest remaining upgrade; the build scripts make swapping easy.
 5. The 6-inch and 8-inch block cards use a concrete-block wall and stacked block pallets, which are representative rather than exact product shots.

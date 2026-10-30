@@ -1,13 +1,34 @@
 # Stone Aura — visual asset sources and licences
 
-All photography and footage on the site is **illustrative stock**, not Stone Aura's own quarry, plant, machinery, staff or projects. The site labels it that way in the hero ("Illustrative footage"), on the About image, in the materials and process notes, and in the footer credits.
+## Owner-supplied photos and logo (received 2026-10-30)
+Supplied by the client for use on the site. Cropped and exported to WebP (slides 1280/1920 + portrait 720/1080, cards 480/800). The full-size originals are not committed.
+
+| Files | Subject | Source upload |
+|---|---|---|
+| `logo-emblem-{dark,light}-{160,480}`, `logo-full-{dark,light}-{720,1200}`, `favicon-64` | Stone Aura logo, background keyed out; "light" is recoloured for dark backgrounds | logo JPEG (1536×1024) |
+| `hs-plant`, `hs-conveyor` | crushing/screening plant with trucks; conveyor discharge | WhatsApp photos 1280×960 |
+| `hs-jally`, `m-12mm` | jally pouring onto a stockpile beside a tipper | IMG_5731 (iPhone) |
+| `hs-jally20`, `m-20mm` | 20 mm jally stockpile | iPhone photo |
+| `hs-msand`, `m-msand` | M-Sand falling from a conveyor | iPhone photo |
+| `hs-blocks`, `m-block-6`, `m-block-8` | stacks of solid concrete blocks | iPhone photos |
+| `hs-quarry`, `m-foundation` | excavator on quarried stone | WhatsApp photo 1280×960 |
+| `hs-cobble`, `m-cobble` | dressed granite cobble stones | IMG_5763 (iPhone ProRAW DNG) |
+| `m-gsb` | conveyor discharging graded material | WhatsApp photo 1280×960 |
+| `m-granite` | stacked 2×2 ft granite slabs | WhatsApp photo 719×1280 |
+| `m-sand-2x` | damp washed sand stockpile | screenshot 1320×854 — **confirm it is the owner's photo** |
+| `stone-aura.vcf` | vCard for the "Save contact" buttons | generated |
+
+Not yet used: crane/gantry photo (granite block handling).
+
+## Stock
+All other photography on the site is **illustrative stock**, not Stone Aura's own quarry, plant, machinery, staff or projects. The site labels it that way in the hero ("Illustrative footage"), on the About image, in the materials and process notes, and in the footer credits.
 
 - **Pexels licence** (https://www.pexels.com/license/): free for commercial use, no attribution required, modification allowed.
 - **Unsplash licence** (https://unsplash.com/license): free for commercial use, no attribution required. Selling the photos unaltered or building a competing service isn't allowed.
 
 Credits are listed anyway, in the footer and below. Everything was downloaded on 2026-10-26.
 
-## Hero film (`assets/video/`, posters `assets/images/hero-poster*`)
+## Former hero film (`assets/video/`, posters `assets/images/hero-poster*`) — no longer used on the page
 | Source | Use | Master |
 |---|---|---|
 | Pexels video 17094405 — https://www.pexels.com/video/17094405/ | Shot 1: conveyor reveal over stockpiles at sunset (0–7.5 s); poster frame | 3840×2160, 29.97 fps |
@@ -16,6 +37,8 @@ Credits are listed anyway, in the footer and below. Everything was downloaded on
 Delivered versions: 2560×1440 for screens ≥1700 px wide, 1920×1080 otherwise, and a native 720×1280 portrait cut for phones. Each comes as VP9 WebM (preferred) and H.264 MP4 (fallback), silent, 18.3 s. To rebuild them, run `_work/stock/build_video.sh`.
 
 ## Photography (Unsplash, `assets/images/`)
+The `p-12mm`, `p-20mm`, `p-gsb`, `p-msand`, `p-sand-2x`, `p-foundation`, `p-cobble`, `p-granite`, `p-block-6` and `p-block-8` files are no longer used (replaced by owner photos); `a-masonry` still uses the block-wall photo.
+
 | File prefix | Subject | Unsplash page | Photographer |
 |---|---|---|---|
 | p-6mm | grey/blue fine stone chips | https://unsplash.com/photos/grey-and-blue-pebbles-McMw8DdSlJ4 | @mitchellf0x |
