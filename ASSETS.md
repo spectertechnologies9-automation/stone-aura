@@ -12,13 +12,15 @@ Supplied by the client for use on the site. Cropped and exported to WebP (slides
 | `hs-msand`, `m-msand` | M-Sand falling from a conveyor | iPhone photo |
 | `hs-blocks`, `m-block-6`, `m-block-8` | stacks of solid concrete blocks | iPhone photos |
 | `hs-quarry`, `m-foundation` | excavator on quarried stone | WhatsApp photo 1280×960 |
-| `hs-cobble`, `m-cobble` | dressed granite cobble stones | IMG_5763 (iPhone ProRAW DNG) |
-| `m-gsb` | conveyor discharging graded material | WhatsApp photo 1280×960 |
+| `hs-foundation`, `m-foundation` | pile of foundation-size granite stone — captioned "Foundation size stone" in the client's chat | IMG_5763 (iPhone ProRAW DNG) |
+| `m-cobble` | circular-pattern cobble paving, cropped square; client's reference picture captioned "Cobble stone for parking" — **origin unconfirmed, probably not their own photo** | chat screenshot 1179×1253 |
 | `m-granite` | stacked 2×2 ft granite slabs | WhatsApp photo 719×1280 |
-| `m-sand-2x` | damp washed sand stockpile | screenshot 1320×854 — **confirm it is the owner's photo** |
+| `m-sand-2x` | damp washed sand stockpile; used for **both** double-wash and triple-wash cards per the client's note | screenshot 1320×854 — **confirm it is the owner's photo** |
 | `stone-aura.vcf` | vCard for the "Save contact" buttons | generated |
 
 Not yet used: crane/gantry photo (granite block handling).
+
+**Still needed from the client** (named in their chat, not received): `IMG_5737.DNG` (6 mm) and the "GSB wet mix" photo (grey gravel pile by a green wall). Until then the 6 mm and GSB cards use stock `p-6mm` / `p-gsb`.
 
 ## Stock
 All other photography on the site is **illustrative stock**, not Stone Aura's own quarry, plant, machinery, staff or projects. The site labels it that way in the hero ("Illustrative footage"), on the About image, in the materials and process notes, and in the footer credits.

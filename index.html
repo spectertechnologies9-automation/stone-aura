@@ -285,6 +285,8 @@ ol,ul{margin:0;padding:0;list-style:none}
 .dock a span{position:absolute;right:calc(100% + 12px);top:50%;transform:translate(8px,-50%);white-space:nowrap;font:500 .68rem var(--f-tech);letter-spacing:.14em;text-transform:uppercase;background:var(--char);color:var(--lime);padding:8px 12px;opacity:0;pointer-events:none;transition:opacity .3s,transform .35s var(--ease)}
 .dock a:hover span,.dock a:focus-visible span{opacity:1;transform:translate(0,-50%)}
 .menu-open .dock{display:none}
+.toast{position:fixed;left:50%;bottom:calc(86px + env(safe-area-inset-bottom));z-index:120;max-width:min(92vw,420px);padding:12px 16px;background:var(--char);color:var(--lime);border:1px solid rgba(211,185,148,.4);font:500 .8rem/1.45 var(--f-body);text-align:center;opacity:0;pointer-events:none;transform:translate(-50%,12px);transition:opacity .35s,transform .45s var(--ease)}
+.toast.is-on{opacity:1;transform:translate(-50%,0)}
 
 /* ==========================================================================
    5. ABOUT
@@ -684,6 +686,7 @@ ol,ul{margin:0;padding:0;list-style:none}
   <symbol id="i-card" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.4"/><path d="M3.5 19.5c.6-3.4 3.3-5.6 6.5-5.6 1.4 0 2.7.4 3.7 1.1"/><path d="M18 14v6M15 17h6"/></g></symbol>
 </svg>
 <!-- quick contact: floating on desktop, bottom bar on phones; shown after the hero -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 <nav class="dock" id="dock" aria-label="Quick contact">
   <a class="d-call" href="tel:+918904207227" aria-label="Call +91 89042 07227"><svg aria-hidden="true"><use href="#i-phone"/></svg><span>Call</span></a>
   <a class="d-card" href="assets/stone-aura.vcf" data-vcard aria-label="Save Stone Aura to contacts"><svg aria-hidden="true"><use href="#i-card"/></svg><span>Save contact</span></a>
@@ -760,10 +763,10 @@ ol,ul{margin:0;padding:0;list-style:none}
             <img src="assets/images/hs-quarry-1280.webp" srcset="assets/images/hs-quarry-1280.webp 1280w" sizes="100vw" alt="Excavator working a heap of quarried granite stone" width="1920" height="1080" loading="lazy" decoding="async" fetchpriority="low">
           </picture>
         </figure>
-        <figure class="hs" data-cap="Cobble &amp; dressed stone" style="--x0:1%;--y0:1%;--s0:1.06;--x1:-1%;--y1:-1.5%;--s1:1.18">
+        <figure class="hs" data-cap="Foundation size stone" style="--x0:1%;--y0:1%;--s0:1.06;--x1:-1%;--y1:-1.5%;--s1:1.18">
           <picture>
-            <source media="(orientation:portrait) and (max-width:900px)" srcset="assets/images/hs-cobble-p-720.webp 720w, assets/images/hs-cobble-p-1080.webp 1080w" sizes="100vw" width="1080" height="1920">
-            <img src="assets/images/hs-cobble-1280.webp" srcset="assets/images/hs-cobble-1280.webp 1280w, assets/images/hs-cobble-1920.webp 1920w" sizes="100vw" alt="Pile of dressed granite cobble stones" width="1920" height="1080" loading="lazy" decoding="async" fetchpriority="low">
+            <source media="(orientation:portrait) and (max-width:900px)" srcset="assets/images/hs-foundation-p-720.webp 720w, assets/images/hs-foundation-p-1080.webp 1080w" sizes="100vw" width="1080" height="1920">
+            <img src="assets/images/hs-foundation-1280.webp" srcset="assets/images/hs-foundation-1280.webp 1280w, assets/images/hs-foundation-1920.webp 1920w" sizes="100vw" alt="Pile of foundation-size granite stone" width="1920" height="1080" loading="lazy" decoding="async" fetchpriority="low">
           </picture>
         </figure>
         <figure class="hs" data-cap="Conveyor &amp; stockpile" style="--x0:0;--y0:0;--s0:1.18;--x1:-1.5%;--y1:1%;--s1:1.06;--o:60% 50%">
@@ -890,7 +893,7 @@ ol,ul{margin:0;padding:0;list-style:none}
     </article></li>
     <li class="spec" data-group="aggregate"><article>
       <div class="spec-top"><b>05</b><span>Aggregate · Sub-base</span></div>
-      <div class="spec-media"><img src="assets/images/m-gsb-480.webp" srcset="assets/images/m-gsb-480.webp 480w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Graded crushed stone and fines discharging from a conveyor" loading="lazy" width="800" height="800"></div>
+      <div class="spec-media"><img src="assets/images/p-gsb-480.webp" srcset="assets/images/p-gsb-480.webp 480w, assets/images/p-gsb-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Graded mix of crushed stone and fines" loading="lazy" width="800" height="800"></div>
       <div class="spec-body"><h3>VSI GSB Wet Mix</h3><p>Graded crushed-stone mix that compacts into a strong, stable layer beneath roads and pavements.</p><p class="uses">Highways · Village &amp; approach roads · Parking</p>
       <button class="spec-enq" data-material="VSI GSB Wet Mix">Enquire <svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 4h13M10 1l3 3-3 3" fill="none" stroke="currentColor"/></svg></button></div>
     </article></li>
@@ -908,19 +911,19 @@ ol,ul{margin:0;padding:0;list-style:none}
     </article></li>
     <li class="spec" data-group="sand"><article>
       <div class="spec-top"><b>08</b><span>Sand · Washed ×3</span></div>
-      <div class="spec-media"><img src="assets/images/p-sand-3x-480.webp" srcset="assets/images/p-sand-3x-480.webp 480w, assets/images/p-sand-3x-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Sand processing plant with a large washed-sand stockpile" loading="lazy" width="800" height="800"></div>
+      <div class="spec-media"><img src="assets/images/m-sand-2x-480.webp" srcset="assets/images/m-sand-2x-480.webp 480w, assets/images/m-sand-2x-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Stockpile of damp washed concrete sand" loading="lazy" width="800" height="800"></div>
       <div class="spec-body"><h3>VSI Triple-Wash Concrete Sand</h3><p>VSI-crushed sand given an additional wash and processed for use in concrete mixes.</p><p class="uses">Structural concrete · Foundations · Infrastructure</p>
       <button class="spec-enq" data-material="VSI Triple-Wash Concrete Sand">Enquire <svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 4h13M10 1l3 3-3 3" fill="none" stroke="currentColor"/></svg></button></div>
     </article></li>
     <li class="spec" data-group="masonry"><article>
       <div class="spec-top"><b>09</b><span>Stone · Foundation</span></div>
-      <div class="spec-media"><img src="assets/images/m-foundation-480.webp" srcset="assets/images/m-foundation-480.webp 480w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Heap of large quarried foundation stone" loading="lazy" width="800" height="800"></div>
+      <div class="spec-media"><img src="assets/images/m-foundation-480.webp" srcset="assets/images/m-foundation-480.webp 480w, assets/images/m-foundation-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Pile of foundation-size granite stone" loading="lazy" width="800" height="800"></div>
       <div class="spec-body"><h3>Foundation Size Stone</h3><p>Large-sized stone for building foundations and civil work, to suit the specified design.</p><p class="uses">Foundations &amp; footings · Stonework · Groundwork</p>
       <button class="spec-enq" data-material="Foundation Size Stone">Enquire <svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 4h13M10 1l3 3-3 3" fill="none" stroke="currentColor"/></svg></button></div>
     </article></li>
     <li class="spec" data-group="masonry"><article>
       <div class="spec-top"><b>10</b><span>Stone · Paving</span></div>
-      <div class="spec-media"><img src="assets/images/m-cobble-480.webp" srcset="assets/images/m-cobble-480.webp 480w, assets/images/m-cobble-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Pile of dressed granite cobble stones" loading="lazy" width="800" height="800"></div>
+      <div class="spec-media"><img src="assets/images/m-cobble-480.webp" srcset="assets/images/m-cobble-480.webp 480w, assets/images/m-cobble-800.webp 800w" sizes="(max-width:560px) 38vw, (max-width:820px) 46vw, (max-width:1100px) 31vw, 23vw" alt="Granite cobble stones laid in a circular fan pattern" loading="lazy" width="800" height="800"></div>
       <div class="spec-body"><h3>Cobble Stone</h3><p>Durable paving stone, commonly natural granite, for strong and attractive outdoor surfaces.</p><p class="uses">Driveways · Garden paths · Building entrances</p>
       <button class="spec-enq" data-material="Cobble Stone">Enquire <svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 4h13M10 1l3 3-3 3" fill="none" stroke="currentColor"/></svg></button></div>
     </article></li>
@@ -947,7 +950,7 @@ ol,ul{margin:0;padding:0;list-style:none}
       <a class="btn btn--solid" href="#contact">Ask us <svg viewBox="0 0 18 10" aria-hidden="true"><path d="M0 5h17M13 1l4 4-4 4" fill="none" stroke="currentColor"/></svg></a>
     </li>
   </ol>
-  <p class="lib-note">Most product photos are of our own materials. The 6 mm jally, 40 mm jally and triple-wash sand cards still use representative stock images. Grades, sizes, availability and quantities are confirmed at enquiry — ask us for the specification your project needs.</p>
+  <p class="lib-note">Most product photos are of our own materials. The 6 mm jally, 40 mm jally, GSB wet mix and cobble stone cards use representative images, and triple-wash sand shares the double-wash photo. Grades, sizes, availability and quantities are confirmed at enquiry — ask us for the specification your project needs.</p>
 </section>
 
 <!-- ================= D. PRODUCTION CYCLE ================= -->
@@ -1171,7 +1174,7 @@ ol,ul{margin:0;padding:0;list-style:none}
   </div>
   <details class="credits" id="credits">
     <summary>Image &amp; footage credits</summary>
-    <p>The hero slideshow and most material photos are Stone Aura’s own site photographs. Other imagery is illustrative stock used under the <a href="https://www.pexels.com/license/" rel="noopener" target="_blank">Pexels</a> and <a href="https://unsplash.com/license" rel="noopener" target="_blank">Unsplash</a> licences and does not depict Stone Aura’s facilities: process stills from Pexels video <a href="https://www.pexels.com/video/17094323/" rel="noopener" target="_blank">17094323</a>; photos on Unsplash by @mitchellf0x, @itsnathan001, @omikron, @timmossholder, @jetztabertempo, @rstar50, @josiahfarrow, @artistseyes, @dypeskogen, @ingsamu, @luandmario, @webaliser, @danist07, @etiennegirardet and @zacharyshakked.</p>
+    <p>The hero slideshow and most material photos are Stone Aura’s own site photographs. Other imagery is illustrative stock used under the <a href="https://www.pexels.com/license/" rel="noopener" target="_blank">Pexels</a> and <a href="https://unsplash.com/license" rel="noopener" target="_blank">Unsplash</a> licences and does not depict Stone Aura’s facilities: process stills from Pexels video <a href="https://www.pexels.com/video/17094323/" rel="noopener" target="_blank">17094323</a>; photos on Unsplash by @mitchellf0x, @itsnathan001, @pretzelman, @timmossholder, @jetztabertempo, @rstar50, @josiahfarrow, @artistseyes, @dypeskogen, @ingsamu, @luandmario, @webaliser, @danist07, @etiennegirardet and @zacharyshakked.</p>
   </details>
 </footer>
 
@@ -1325,9 +1328,48 @@ document.addEventListener('visibilitychange', hsSyncPause);
 hsUI(); hsSyncPause();
 
 /* ---------- contact actions: WhatsApp links + vCard ---------- */
-// iOS opens a .vcf straight into the "add contact" sheet; elsewhere offer it as a named download
-const isIOS = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-if (!isIOS) $$('[data-vcard]').forEach(a => a.setAttribute('download', 'Stone-Aura.vcf'));
+// iPhone: the .vcf opens straight into the "new contact" sheet. Desktop: named download.
+// Android: Chrome only downloads a .vcf (the person must then find and tap it), so we open the phone's
+// "add contact" screen directly with the details filled in, and fall back to the download if that can't open.
+const UA = navigator.userAgent;
+const isIOS = /iP(hone|ad|od)/.test(UA) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+const isAndroid = /Android/i.test(UA);
+const inAppBrowser = /; wv\)|FBAN|FBAV|Instagram|Snapchat|Line\/|MicroMessenger/i.test(UA); // these usually block intent: links
+const CARD = {
+  name: 'Stone Aura', phone: CONTACT.phone, email: CONTACT.email,
+  company: 'Stone Aura (M/S Anugraha Enterprises)', job: 'Stone aggregates & construction materials',
+  postal: 'No. 123/2, 1st Floor, 1st Main, 3rd Cross, Near Ganesha Temple, Chikkajala, Bengaluru, Karnataka 562157',
+  notes: 'VSI jally, GSB wet mix, M-Sand, washed concrete sand, foundation & cobble stone, granite slabs, solid concrete blocks. WhatsApp: +91 89042 07227'
+};
+const toast = $('#toast'); let toastT = 0;
+function say(msg) { toast.textContent = msg; toast.classList.add('is-on'); clearTimeout(toastT); toastT = setTimeout(() => toast.classList.remove('is-on'), 6500); }
+function downloadCard(link) {
+  const d = document.createElement('a'); d.href = link.href; d.download = 'Stone-Aura.vcf'; d.rel = 'noopener';
+  document.body.appendChild(d); d.click(); d.remove();
+}
+function androidIntent() {
+  const e = encodeURIComponent, c = CARD;
+  return 'intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;' +
+    `S.name=${e(c.name)};S.phone=${e(c.phone)};i.phone_type=2;S.email=${e(c.email)};i.email_type=2;` +
+    `S.company=${e(c.company)};S.job_title=${e(c.job)};S.postal=${e(c.postal)};S.notes=${e(c.notes)};end`;
+}
+$$('[data-vcard]').forEach(a => {
+  if (!isIOS) a.setAttribute('download', 'Stone-Aura.vcf');
+  if (!isAndroid) return;
+  a.addEventListener('click', ev => {
+    ev.preventDefault();
+    if (inAppBrowser) { downloadCard(a); say('Contact card downloaded. If nothing opens, open this page in Chrome and tap Save contact again.'); return; }
+    let left = false;
+    const onVis = () => { if (document.hidden) left = true; };
+    document.addEventListener('visibilitychange', onVis);
+    const t = document.createElement('a'); t.href = androidIntent(); t.style.display = 'none';
+    document.body.appendChild(t); t.click(); t.remove();
+    setTimeout(() => { // the Contacts screen takes the page to the background; if it never did, use the file
+      document.removeEventListener('visibilitychange', onVis);
+      if (!left) { downloadCard(a); say('Contact card downloaded. Open it from your notifications or Downloads to save it.'); }
+    }, 2200);
+  });
+});
 const dock = $('#dock'), contactSec = $('#contact');
 
 /* ---------- pointer (cursor + parallax) ---------- */

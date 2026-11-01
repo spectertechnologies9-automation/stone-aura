@@ -11,6 +11,13 @@ _Last updated: 2026-10-30 (v4: owner logo + photos, hero slideshow, phone/WhatsA
 - Tested (Playwright Chromium): 360/390/768/1440/1920 px with no overflow, console errors or failed requests; autoplay, pause/resume, off-screen pause, reduced motion and no-JS checked.
 - Open: confirm the washed-sand photo (`m-sand-2x`, came as a screenshot) is the owner's; send photos for 6 mm, 40 mm and triple-wash sand; `assets/video/` (26 MB) can be deleted if the film won't return.
 
+## v4.1 (2026-11-01)
+- Photos matched to the client's chat captions: **Foundation size stone = IMG_5763** (was wrongly on the cobble card and labelled "Cobble & dressed stone" in the slideshow; slide renamed `hs-foundation`), 12 mm = IMG_5731 (unchanged), triple-wash now uses the double-wash photo.
+- **Cobble** card uses the client's circular-pattern reference picture, cropped to a square (black bars, caption and white corners removed).
+- **GSB wet mix** card reverted to the stock image: the conveyor photo was a guess and the client's real GSB photo is a different picture that we don't have. `m-gsb` removed.
+- **Save contact on Android:** the buttons now open the phone's "add contact" screen prefilled via an Android intent (name, phone, email, company, address). If the page never goes to the background (intent unsupported) it falls back to downloading the .vcf and shows a toast. In-app browsers (Instagram/Facebook/WebView) skip the intent and download directly with a "open in Chrome" hint. iPhone and desktop unchanged. vCard simplified and validated with a parser. **Not tested on a real Android phone** (emulated user agents only).
+- Open: IMG_5737 (6 mm) and the GSB wet-mix photo; confirm the washed-sand and cobble pictures are usable.
+
 ## Earlier: v3 (2026-10-26, cinematic rebuild with licensed footage and photography)
 
 ## What this is

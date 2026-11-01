@@ -13,7 +13,7 @@ Static marketing site for Stone Aura (legal name M/S Anugraha Enterprises). Ther
 
 ## Content rules
 - Don't invent specs, prices, certifications, stats, testimonials or project claims. The founding year is 2014 (ignore the "2018 Stone Aura Marketing" variant).
-- Contact details: phone and WhatsApp are **+91 89042 07227** (`CONTACT` object in the script, plus static `tel:`/`wa.me` links in the hero, dock, menu, contact section and footer). Email is `stoneaura.aggregates@gmail.com`. The "Save contact" buttons link to `assets/stone-aura.vcf`; update it if details change.
+- Contact details: phone and WhatsApp are **+91 89042 07227** (`CONTACT` object in the script, plus static `tel:`/`wa.me` links in the hero, dock, menu, contact section and footer). Email is `stoneaura.aggregates@gmail.com`. The "Save contact" buttons link to `assets/stone-aura.vcf` (iPhone/desktop); on Android the script opens the phone's add-contact screen via an `intent:` URL built from the `CARD` object, falling back to the .vcf. Update both `CARD` and the .vcf if details change.
 - The hero slideshow (`hs-*`) and most material cards (`m-*`) use owner-supplied site photos. Everything else is illustrative stock (see `ASSETS.md`): label it as illustrative and never present it as the company's own facilities. Record source and licence for any new asset in `ASSETS.md` and the footer credits.
 
 ## Checks
